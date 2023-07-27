@@ -1,0 +1,18 @@
+{% include "menu.html" %}
+{% block content %}
+    {% load crispy_forms_tags %}
+<div class="container py-5">
+      <h2>Login</h2>
+      <form method="POST">
+        {% csrf_token %}
+        {{ login_form|crispy }}
+
+        <button class="btn btn-primary" type="submit">Login</button>
+      </form>
+      <p class="text-center">Si no tienes una cuenta, registrate  en  <a href="{% url 'registro' %}">Registro</a>
+    </p>
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% include 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% load static %}
+{% block content %}
+
+<body>
+<div class="container py-5" id="vehiculo-list">
+<div class="title py-3">
+<h1>Listado de Vehiculos</h1>
+</div>
+<div class="card" id="card list">
+<table class="table table-hover text-center  table-responsive-sm" >
+<thead>
+
+    <tr>
+<th>Marca</th>
+<th>Modelo</th>
+<th>Serial Carroceria</th>
+<th>Serial Motor</th>
+<th>Categoria</th>   
+<th>Precio</th>
+<th>Condicion de precio</th>
+
+</tr>
+</thead>
+{% if lista_vehiculos %}
+{% for item in lista_vehiculos%}
+<tbody>
+<tr>
+<th>{{item.marca}}</th>
+<td>{{item.modelo}}</td>
+<td>{{item.serial_carroceria}}</td>
+<td>{{item.serial_motor}}</td>
+<td>{{item.categoria}}</td>
+<td>{{item.precio}}</td>
+<td>
+    {% if item.precio > 30000 %}
+        Alto
+    {% elif item.precio > 10000 and item.precio <= 30000 %}
+        Medio
+    {% elif item.precio <= 10000 %}
+        Bajo  
+    {% else %}
+        Valor inválido 
+    {% endif %}         
+</td>
+</tr>
+</tbody>
+{% endfor %}
+{% else %}
+<h1>No tengo información de Vehículos</h1>
+{% endif %}
+</table>
+</div>
+
+</div></body>
+{% endblock %}

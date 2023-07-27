@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Error 403</title>
+    <style>
+        body {
+            background-color: #f00;
+            color: #fff;
+            font-family: sans-serif;
+            font-size: 16px;
+            padding: 20px;
+            position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+        }
+
+
+
+        #countdown {
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>    
+<br><br>
+<br>
+
+ <p><h1>No estás autorizado para ver esta página.</h1>Redirigiendo en <span id="countdown">8</span> segundos...</p>
+
+    {% load static %}
+
+<img src="{% static '403.gif' %}" alt="403" />
+
+    <script>
+      var count = 8;
+var interval = setInterval(function() {
+    document.getElementById('countdown').innerHTML = count;
+    count--;
+    if (count === 0) {
+        clearInterval(interval);
+        window.location.href = 'http://localhost:8000/';
+    }
+}, 800);
+
+    </script>
+
+
+
+
+</body>
+</html>

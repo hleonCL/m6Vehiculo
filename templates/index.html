@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<title>Vehiculos APP </title>
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+</head>
+<body>
+  <div class="hola"><img src="{% static 'logo.png' %}" alt="Logo" width="400px" /><br>
+    {% if user.is_authenticated %}
+    <a href="http://localhost:8000/vehiculo/listar">
+      <button type="button" class="btn btn-primary btn-lg">Ver Catálogo</button>
+    </a>
+  {% else %}
+    <a href="http://localhost:8000/vehiculo/login/">
+      <button type="button" class="btn btn-primary btn-lg">Ver Catálogo</button>
+    </a>
+  {% endif %}
+    <br>
+    <br>
+    <br>
+    {% if not user.is_authenticated %}
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <a href="http://localhost:8000/vehiculo/login/"><button type="button" class="btn btn-secondary">Login</button></a>
+      <button type="button" class="btn btn-secondary " disabled></button>
+      <a href="http://localhost:8000/vehiculo/registro/"><button type="button" class="btn btn-secondary">Registro</button></a>
+    </div>
+  {% endif %}
+  
+  
+  </div>
+
+
+
+
+{% endblock %}  
+</body>
+</html>

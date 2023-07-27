@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <div class="formulario">
+        <h3>Ingresar Vehiculo</h3>
+<form method= "POST">
+    {% csrf_token %}
+    <div class="form-group col-md-4">
+<label>Marca</label><br>
+{{ form.marca }}
+</div>
+
+<div class="form-group col-md-4">
+<label>Modelo:</label><br>
+{{ form.modelo }}
+</div>
+
+<div class="form-group col-md-4">
+    <label>Serial Carroceria:</label><br>
+    {{ form.serial_carroceria }}
+    </div>
+
+    <div class="form-group col-md-4">
+        <label>Serial Motor</label><br>
+        {{ form.serial_motor }}
+        </div>
+
+    
+<div class="form-group col-md-4">
+    <label>Categoria:</label><br>
+    {{ form.categoria }}
+    </div>
+
+ <div class="form-group col-md-4">
+      <label>Precio:</label><br>
+        {{ form.precio }}
+        </div><br>
+        <input type="submit" class="btn btn-primary"></input>
+    
+        
+       
+
+</form>    </div>
+
+
+{% endblock %}
+

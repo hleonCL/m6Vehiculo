@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% load static %}
+
+{% block content %}
+  <h1>Agregar vehículo</h1>
+  <div class="formulario">
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+  </form>
+  </div>
+{% endblock %}
